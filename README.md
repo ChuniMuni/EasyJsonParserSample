@@ -8,9 +8,6 @@
 Usage and sample of EasyJsonParser released in the market place of UE4.
 
 
-[f:id:ayuma0913:20190615230834p:plain]
-
-
 
 # How to use
 Json string or Json file after loading, specify the access string and get the value.
