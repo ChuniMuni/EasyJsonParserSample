@@ -1,4 +1,5 @@
 # EasyJsonParserSample
+![pic](https://user-images.githubusercontent.com/8191970/59552718-7bcef200-8fc5-11e9-8873-a4aa3fef3a82.png)
 
 ## UE4 Marketplace
 [https://unrealengine.com/marketplace/ja/slug/easyjsonparser](https://unrealengine.com/marketplace/ja/slug/easyjsonparser)
@@ -11,17 +12,17 @@ Usage and sample of EasyJsonParser released in the market place of UE4.
 
 
 
-# 使い方
-Json文字列 or Jsonファイルロードした後、アクセス文字列を指定して値の取得を行います。
+# How to use
+Json string or Json file after loading, specify the access string and get the value.
 
-[f:id:ayuma0913:20190615222610p:plain]
+![GALLERY 1](https://user-images.githubusercontent.com/8191970/59552751-a15bfb80-8fc5-11e9-8da8-767b2734a4dd.png)
 
 
-# アクセス文字列の指定
-基本的には取得したい値までのパスをドットでつなげて指定します。
+# Specify Access String
+Specify the path to the value you want to get by connecting dots.
 
-## シンプルなケース
-以下のシンプルなJsonから"prop"の値をとる場合のアクセス文字列は`prop`になります。
+## Simple case
+The access string for taking a "prop" value from the following simple Json is `prop`.
 
 ```json
 {
@@ -30,10 +31,10 @@ Json文字列 or Jsonファイルロードした後、アクセス文字列を�
 ```
 
 
-## オブジェクトの階層になっている場合
-以下のように階層になっている場合は、ドットでつなげてアクセス文字列を作ります。
+## When it is a hierarchy of objects
+If you have a hierarchy as shown below, connect with dots to create an access string.
 
-以下のケースでは`obj`というオブジェクトの中の`prop`プロパティを取りたいため、アクセス文字列は`obj.prop`になります。
+In the following case, the access string is `obj.prop` because we want to take the` prop` property in the object `obj`.
 
 ```json
 {
@@ -44,12 +45,12 @@ Json文字列 or Jsonファイルロードした後、アクセス文字列を�
 }
 ```
 
-## 配列が含まれる場合
-以下のように配列になっている場合は、何番目のものを取りたいかを指定します。
+## If the array is included
+In the case of the following array, please specify which array element to use.
 
-例えば2個目の`prop`を取りたい場合は、`obj[1].prop`となります。
+For example, if you want to take the second `prop`, it will be `obj[1].prop`.
 
-1個目の`prop`を取りたい場合は、`obj[0].prop`となります。
+If you want to take the first `prop`, it will be`obj[0].prop`.
 
 ```json
 {
@@ -64,11 +65,11 @@ Json文字列 or Jsonファイルロードした後、アクセス文字列を�
 }
 ```
 
-## 型を指定しての値の取得
+## Get value by type
 
-Jsonから値を取得するために、次の4つの関数が用意されます。
+The following four functions are provided to obtain values ​​from Json:
 
-[f:id:ayuma0913:20190615225443p:plain]
+![pic](https://user-images.githubusercontent.com/8191970/59552810-758d4580-8fc6-11e9-8a5f-09527883e26c.png)
 
 + ReadInt(int)
 + ReadFloat(float)
@@ -76,36 +77,21 @@ Jsonから値を取得するために、次の4つの関数が用意されます
 + ReadBool(bool)
 
 
-「AccessString」にはアクセス文字列を入力します。
+Enter the access string for "AccessString".
 
-「DefaultValue」にはデフォルト値を入力します。指定された値がJsonに存在しない場合は、デフォルト値が返されます。
+Enter the default value for "DefaultValue". If the specified value does not exist in Json, a default value is returned.
 
-## オブジェクトの取得
+## Get object
 
-値ではなくオブジェクトとして取得する "ReadObject"および "ReadObjects"メソッドもあります。
+There are also "ReadObject" and "ReadObjects" methods that get as objects instead of values.
 
-このメソッドで取得できるのはオブジェクトプロパティのみです。
+This method can only retrieve object properties.
 
-ReadObjectは1つのノードオブジェクトを取得します。
+ReadObject gets one node object.
 
-ReadObjectsは複数のオブジェクトの配列を取得します。
+ReadObjects gets an array of multiple objects.
 
-以下のように、いったん階層途中のオブジェクトを取得してから、そのオブジェクトのプロパティを取得する使い方もできます。
+As shown below, you can use it to get an object in the middle of the hierarchy and then get the properties of that object.
 
-[f:id:ayuma0913:20190615230219p:plain]
-
-[f:id:ayuma0913:20190615230333p:plain]
-
-# 今できることと今後やりたいこと
-今回は`Jsonから値を取得する`という機能のみを、いかにシンプルに実装するかを考えて作成しました。
-
-今はJsonはConfig値を設定ファイルに保存して利用したり、Web APIのデータのやりとりなど様々なところで使われていると思います。
-
-このプラグインを使用すると、そのようなJsonからの値の取り出しをブループリントから楽にできるようになります。
-
-今後の機能UPとしては以下のようなものを候補に考えています。
-特に今は値の取得しかできないので、値の設定側もできるようになると幅が広がるのかなあと思っています。
-
-+ マルチプラットフォーム対応
-+ 値の設定
+![pic](https://user-images.githubusercontent.com/8191970/59552834-bb4a0e00-8fc6-11e9-8f0a-58b0ccd421d6.png)
 
